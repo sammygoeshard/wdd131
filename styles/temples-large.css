@@ -1,0 +1,45 @@
+
+/* ---------- Large overrides (styles/temples-large.css) ---------- */
+/* This file is linked with media="(min-width: 820px)" in your HTML */
+
+/* Header realigns: title left, nav inline to the right */
+header {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+}
+
+/* Nav becomes horizontal */
+nav ul {
+  flex-direction: row;
+  gap: .75rem;
+}
+
+nav a {
+  display: inline-block;   /* shrink to content width */
+  background: transparent; /* remove the subtle button background */
+}
+
+/* Grid: cap at 3 columns on large screens */
+.grid-container {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Slight type scale bump for roomy screens */
+#title { font-size: clamp(1.4rem, 3.2vw, 2rem); }
+h1      { font-size: clamp(1.6rem, 3vw, 2.5rem); }
+
+
+/* Hide hamburger button on large viewports */
+.hamburger { display: none; }
+
+/* Ensure the nav list is fully visible and unconstrained */
+#primaryNav {
+  max-height: none !important;     /* override mobile collapse */
+  overflow: visible;
+}
+
+/* Remove mobile list separators for horizontal layout */
+nav a { border: 0; }
+/*=========================================*/
