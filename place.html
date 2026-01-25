@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Italy — Place Page</title>
-  <meta name="description" content="A responsive page about Italy. Italy is a Mediterranean masterpiece where millennia of history meet modern elegance. From the Colosseum’s ancient grandeur to the Renaissance artistry of Florence and Venice’s winding canals, it is a cultural powerhouse. Beyond the landmarks, Italy thrives on culinary excellence—think world-class pasta and wine—and a diverse landscape stretching from the rugged Dolomites to the sun-drenched Amalfi Coast." />
+  <meta name="description" content="A responsive page about Italy. a Mediterranean masterpiece where millennia of history meet modern elegance. " />
   <meta name="author" content="Samuel Jaspe">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,6 +39,8 @@
           srcset="images/italy-hero-small.webp"
           media="(max-width: 63.99rem)"
           type="image/webp" />
+        <!-- Fallback img -->
+        <img src="images/italy-hero-small.webp" alt="Italy hero image">  
       </picture>
 
       <div class="panels">
@@ -104,8 +106,9 @@
           <ul class="weather-list">
             <li>
               <span class="label">Temperature:</span>
-              <span id="temperature" class="value">10</span>
-              <span class="unit" aria-label="degrees Celsius">°C</span>
+              <span id="temperature" class="value">10</span>  
+              <span class="unit" aria-hidden="true">°C</span>
+              <span class="visually-hidden">degrees Celsius</span>
             </li>
             <li>
               <span class="label">Conditions:</span>
@@ -138,7 +141,7 @@
       <br>
       <small>
         Last Modification:
-        <time id="last-modified">(to be set by JS)</time>
+        <time id="last-modified" datetime="2026-01-24T00:00:00Z">2026-01-24</time>>
       </small>
     </p>
   </footer>
