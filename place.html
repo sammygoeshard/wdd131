@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Italy — Place Page</title>
+  <meta name="description" content="A responsive page about Italy." />
+  <meta name="author" content="Samuel Jaspe">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script src="scripts/getdates.js" defer></script>
+  <script src="scripts/windchill.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/place.css" />
+
+  <!-- Prepare for future JS (wind chill, year, last modified) -->
+  <!-- <script defer src="scripts/place.js"></script> -->
+</head>
+<body>
+  <header class="site-header">
+    <div class="page">
+      <h1>Italy</h1>
+    </div>
+    <div class="accent-bar" aria-hidden="true"></div>
+  </header>
+
+  <main class="page">
+    <!-- Hero with responsive WebP sources (replace paths with your images) -->
+    <section class="hero" aria-label="Italy hero image">
+      <picture>
+        <!-- Large / desktop -->
+        <source
+          srcset="images/roman-landscape-large.webp"
+          media="(min-width: 64rem)"
+          type="image/webp" />
+        <!-- Small / mobile -->
+        <source
+          srcset="images/italy-hero-small.webp"
+          media="(max-width: 63.99rem)"
+          type="image/webp" />
+        <!-- Fallback (optional JPEG/PNG) -->
+        <img
+          src="images/italy-hero-fallback.jpg"
+          alt="Scenic view in Italy"
+          width="1600"
+          height="900"
+          loading="eager" />
+      </picture>
+
+      <!-- Panels: in mobile they stack under the hero image; in wide view they overlay -->
+      <div class="panels">
+        <section class="card data" aria-labelledby="data-title">
+          <h2 id="data-title">Data</h2>
+          <dl class="kv">
+            <div>
+              <dt>Area:</dt>
+              <dd>301,340 sq km</dd>
+            </div>
+            <div>
+              <dt>Population:</dt>
+              <dd>~59,000,000</dd>
+            </div>
+            <div>
+              <dt>Capital:</dt>
+              <dd>Rome</dd>
+            </div>
+            <div>
+              <dt>Languages:</dt>
+              <dd>Italian</dd>
+            </div>
+            <div>
+              <dt>Currency:</dt>
+              <dd>Euro (EUR)</dd>
+            </div>
+            <div>
+              <dt>Time Zone:</dt>
+              <dd>UTC+1 (UTC+2 DST)</dd>
+            </div>
+            <div>
+              <dt>Calling Code:</dt>
+              <dd>+39</dd>
+            </div>
+            <div>
+              <dt>Internet TLD:</dt>
+              <dd>.it</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section
+          id="weather"
+          class="card weather"
+          aria-labelledby="weather-title"
+          data-units="metric"
+          data-temp="10"
+          data-wind="5"
+        >
+          <h2 id="weather-title" class="weather-title">Weather</h2>
+
+          <!-- SVG icon for mobile (replace the path with your SVG) -->
+          <figure class="weather-art">
+            <img
+              class="weather-svg"
+              src="images/icons/partly-cloudy.svg"
+              alt="Partly cloudy"
+              width="72"
+              height="72"
+              loading="lazy" />
+          </figure>
+
+          <ul class="weather-list">
+            <li>
+              <span class="label">Temperature:</span>
+              <span id="temperature" class="value">10</span>
+              <span class="unit" aria-label="degrees Celsius">°C</span>
+            </li>
+            <li>
+              <span class="label">Conditions:</span>
+              <span id="conditions" class="value">Partly Cloudy</span>
+            </li>
+            <li>
+              <span class="label">Wind:</span>
+              <span id="wind" class="value">5</span>
+              <span class="wind-unit" aria-label="kilometers per hour">km/h</span>
+            </li>
+            <li>
+              <span class="label">Wind Chill:</span>
+              <span id="windchill" class="value">N/A</span>
+              <span class="wc-unit">°C</span>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      <span id="copyright-year">© <span class="year">2026</span></span>
+      <span class="sep">•</span>
+      <span class="owner">Samuel Alejandro Jaspe Grismán</span>
+      <span class="sep">•</span>
+      <span class="place">Venezuela</span>
+      <br />
+      <small>
+        Last Modification:
+        <time id="last-modified" datetime="">(to be set by JS)</time>
+      </small>
+    </p>
+  </footer>
+</body>
+</html>

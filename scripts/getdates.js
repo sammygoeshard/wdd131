@@ -1,30 +1,24 @@
-(function setCurrentYear() {
-  const yearEl = document.getElementById('currentyear');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
-})();
+// GETDATES VERSION 2 
+// scripts/getdate.js  (robust + backward compatible)
+(function () {
+  const now = new Date();
 
-// 2) date and hour of last modification
-(function setLastModified() {
-  const lastModEl = document.getElementById('lastModified');
-  if (lastModEl) {
-    const raw = document.lastModified;
+  // ---- YEAR ----
+  // Prefer #currentyear (old), else .year (new)
+  const yearEl = document.getElementById("currentyear") || document.querySelector(".year");
+  if (yearEl) yearEl.textContent = now.getFullYear();
 
-    let formatted = raw;
-    const parsed = Date.parse(raw);
-    if (!Number.isNaN(parsed)) {
-      const dt = new Date(parsed);
-      formatted = dt.toLocaleString(navigator.language || 'en-US', {
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      });
+  // ---- LAST MODIFIED ----
+  // Prefer #lastModified (old), else #last-modified (new)
+  const lmEl = document.getElementById("lastModified") || document.getElementById("last-modified");
+  if (lmEl) {
+    const modified = new Date(document.lastModified);
+    // If the element is a <time>, fill both datetime and text
+    if (lmEl.tagName && lmEl.tagName.toLowerCase() === "time") {
+      lmEl.dateTime = modified.toISOString();
+      lmEl.textContent = document.lastModified;
+    } else {
+      lmEl.textContent = `Last Modification: ${document.lastModified}`;
     }
-
-    lastModEl.textContent = `Last Modification ${formatted}`;
   }
 })();

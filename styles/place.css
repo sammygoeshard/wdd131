@@ -1,0 +1,240 @@
+:root {
+  --italy-green: #008c45;
+  --italy-white: #f4f5f0;
+  --italy-red:   #cd212a;
+
+  --bg: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --card-bg: #ffffff;
+  --card-bg-overlay: rgba(255, 255, 255, 0.92);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+
+  --radius: 12px;
+  --border: 1px solid #e5e7eb;
+
+  --space-1: 0.5rem;
+  --space-2: 0.75rem;
+  --space-3: 1rem;
+  --space-4: 1.25rem;
+  --space-5: 1.75rem;
+  --space-6: 2.25rem;
+
+  --maxw: 1160px;
+}
+
+/* ===== Base ===== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background-color: var(--bg);
+  line-height: 1.55;
+}
+
+h1, h2 {
+  font-family: "Merriweather", Georgia, "Times New Roman", serif;
+  margin: 0 0 var(--space-3);
+  line-height: 1.2;
+}
+
+.page {
+  width: min(var(--maxw), 92%);
+  margin-inline: auto;
+}
+
+/* ===== Header ===== */
+.site-header {
+  background: var(--italy-red);
+  color: #fff;
+  padding-block: var(--space-3);
+  text-align: center;
+}
+.site-header h1 {
+  font-size: clamp(1.4rem, 3vw + 1rem, 2.2rem);
+  font-weight: 700;
+}
+.accent-bar {
+  height: 8px;
+  background: var(--italy-green);
+}
+
+/* ===== Hero & Panels ===== */
+.hero {
+  position: relative;           /* required for overlay positioning on wide */
+  --hero-max-h: 640px;
+}
+.hero picture,
+.hero img {
+  display: block;
+  width: 100%;
+  height: clamp(320px, 62vh, var(--hero-max-h));
+  object-fit: cover;
+  border-radius: 0; /* keep image edge-to-edge inside content width */
+}
+
+/* Mobile: panels stack below the hero */
+.panels {
+  display: grid;
+  gap: var(--space-5);
+  padding: var(--space-5) 0;
+}
+
+/* ===== Cards ===== */
+
+.card {
+  background: var(--card-bg);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: clamp(var(--space-3), 1.5vw, var(--space-5));
+}
+
+
+/* Full-width green bar as the card title */
+.card h2 {
+  background: var(--italy-green);   /* <-- green title bar */
+  color: #fff;
+  margin: calc(-1 * clamp(var(--space-3), 1.5vw, var(--space-5)))  /* pull to card edges */
+          calc(-1 * clamp(var(--space-3), 1.5vw, var(--space-5)))
+          var(--space-3);
+  padding: 0.6rem 0.9rem;
+  border-radius: calc(var(--radius) - 2px) calc(var(--radius) - 2px) 0 0; /* round top corners */
+  text-align: left;                 /* align like a panel header */
+  font-size: clamp(1.05rem, 1.1vw + 1rem, 1.4rem);
+}
+
+/* In wide view, leave space for the ⛅ pseudo-icon on Weather */
+@media (min-width: 64rem) {
+  .weather-title {
+    position: relative;
+    padding-right: 2.25rem; /* space for ⛅ */
+  }
+  .weather-title::after {
+    right: 0.6rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+/* Data list */
+.kv {
+  display: grid;
+  gap: var(--space-2) var(--space-3);
+  margin: 0;
+}
+.kv > div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-2);
+  padding-block: 0.25rem;
+  border-bottom: 1px dashed #e5e7eb;
+}
+.kv > div:last-child { border-bottom: 0; }
+.kv dt { font-weight: 600; color: var(--muted); }
+.kv dd { margin: 0; }
+
+/* Weather block */
+.weather { position: relative; }
+.weather-title {
+  position: relative;
+  padding-right: 2.25rem; /* space for pseudo icon on wide */
+}
+.weather-art {
+  display: flex;
+  justify-content: center;
+  margin-block: var(--space-3);
+}
+.weather-art img,
+.weather-svg {
+  width: clamp(56px, 7vw, 96px);
+  height: auto;
+}
+.weather-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+  width: 100%;
+  max-width: 420px;
+  margin-inline: auto;
+}
+.weather-list .label {
+  font-weight: 600;
+  margin-right: 0.25rem;
+  color: var(--muted);
+}
+
+/* ===== WIDE VIEW: 64rem+ (≈ 1024px) ===== */
+/* NOTE: we must NOT use custom properties in media queries */
+@media (min-width: 64rem) {
+
+  /* Make overlay container span the hero area */
+  .panels {
+    position: absolute;
+    inset: 0;
+    display: block;       /* block so absolute children can place freely */
+    padding: 0;
+    pointer-events: none; /* cards will re-enable pointer events */
+  }
+
+  .card {
+    background: var(--card-bg-overlay);
+    backdrop-filter: saturate(120%) blur(2px);
+    pointer-events: auto;
+  }
+
+  /* Place the Data card top-left, fixed width that scales with content width */
+  .data {
+    position: absolute;
+    top: 8%;
+    left: 4%;
+    width: min(360px, 32%);
+  }
+
+  /* Place the Weather card bottom-right */
+  .weather {
+    position: absolute;
+    right: 4%;
+    bottom: 10%;
+    width: min(340px, 30%);
+  }
+
+  /* Hide the mobile SVG icon; use pseudo element after the heading instead */
+  .weather-art { display: none; }
+
+  .weather-title::after {
+    content: "⛅";
+    position: absolute;
+    right: 0.35rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.4rem;
+  }
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  margin-top: var(--space-6);
+  background: var(--italy-red);
+  color: #fff;
+  text-align: center;
+  padding: var(--space-5) var(--space-3);
+}
+.site-footer .sep { opacity: 0.7; margin-inline: 0.4rem; }
+.site-footer small { color: #fefefe; opacity: 0.95; }
+
+/* ===== A11y helper ===== */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  margin: -1px; border: 0; padding: 0;
+  white-space: nowrap; clip-path: inset(50%); clip: rect(0 0 0 0); overflow: hidden;
+}
