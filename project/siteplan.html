@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Café Aurora — Site Plan</title>
+  <!-- Google Fonts: warm, readable pairing -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="aurora.css" />
+</head>
+<body>
+  <header class="page-header">
+    <h1>Café Aurora — Website Site Plan</h1>
+    <p class="subtitle">simple outline of the pages, navigation, and key sections for the café project.</p>
+  </header>
+
+  <main>
+    <!-- Site Identity & Purpose -->
+    <section class="card" aria-labelledby="identity-heading">
+      <h2 id="identity-heading">Site Identity & Purpose</h2>
+      <dl class="meta">
+        <div>
+          <dt>Site Name</dt>
+          <dd><strong>Café Aurora</strong> — evokes a warm morning start and a welcoming campus spot.</dd>
+        </div>
+        <div>
+          <dt>Purpose</dt>
+          <dd>Inform students and faculty about the café menu, hours, specials, events, and provide easy ways to contact or place pickup orders.</dd>
+        </div>
+        <div>
+          <dt>Target Audience</dt>
+          <dd>University students, staff, and visitors looking for coffee, pastries, study-friendly space, and event updates.</dd>
+        </div>
+        <div>
+          <dt>Primary Navigation</dt>
+          <dd>Home · Menu · About · Contact</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- Structure Visualization -->
+    <section class="card" aria-labelledby="structure-heading">
+      <h2 id="structure-heading">Website Structure & Navigation Hierarchy</h2>
+
+      <div class="structure">
+        <article class="tree">
+          <h3 class="tree-title">Pages</h3>
+          <ul class="root">
+            <li>
+              <span class="node page">Home (index.html)</span>
+              <ul>
+                <li><span class="node section">Hero / Banner</span></li>
+                <li><span class="node section">Featured Specials</span></li>
+                <li><span class="node section">Hours & Location</span></li>
+                <li><span class="node section">Call-to-Action: View Menu</span></li>
+              </ul>
+            </li>
+            <li>
+              <span class="node page">Menu (menu.html)</span>
+              <ul>
+                <li><span class="node section">Coffee & Espresso</span></li>
+                <li><span class="node section">Teas & Cold Drinks</span></li>
+                <li><span class="node section">Pastries & Snacks</span></li>
+                <li><span class="node section">Seasonal / Student Picks</span></li>
+              </ul>
+            </li>
+            <li>
+              <span class="node page">About (about.html)</span>
+              <ul>
+                <li><span class="node section">Our Story</span></li>
+                <li><span class="node section">Sourcing & Sustainability</span></li>
+                <li><span class="node section">Gallery (lazy-loaded images)</span></li>
+              </ul>
+            </li>
+            <li>
+              <span class="node page">Contact (contact.html)</span>
+              <ul>
+                <li><span class="node section">Contact Form</span></li>
+                <li><span class="node section">Map & Directions</span></li>
+                <li><span class="node section">Social Links</span></li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+
+        <article class="tree">
+          <h3 class="tree-title">Shared Layout</h3>
+          <ul class="root">
+            <li>
+              <span class="node layout">Header</span>
+              <ul>
+                <li><span class="node component">Logo / Site Name</span></li>
+                <li><span class="node component">Primary Navigation</span></li>
+              </ul>
+            </li>
+            <li>
+              <span class="node layout">Main</span>
+              <ul>
+                <li><span class="node component">Page-specific Sections (see pages)</span></li>
+              </ul>
+            </li>
+            <li>
+              <span class="node layout">Footer</span>
+              <ul>
+                <li><span class="node component">Hours • Address</span></li>
+                <li><span class="node component">Social • Copyright</span></li>
+                <li><span class="node component">References Page Link</span></li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="note">Visualization uses simple nested lists styled with Flexbox to show hierarchy.</p>
+    </section>
+
+    <!-- Sections Overview -->
+    <section class="card" aria-labelledby="sections-heading">
+      <h2 id="sections-heading">Key Sections per Page</h2>
+      <div class="grid grid-2">
+        <div>
+          <h3>Home</h3>
+          <ul>
+            <li>Hero with welcoming message</li>
+            <li>Daily/Weekly specials</li>
+            <li>Hours, map snippet</li>
+            <li>CTA buttons: View Menu, Contact</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Menu</h3>
+          <ul>
+            <li>Filter or tabs by category</li>
+            <li>Prices & dietary labels</li>
+            <li>Seasonal highlights</li>
+          </ul>
+        </div>
+        <div>
+          <h3>About</h3>
+          <ul>
+            <li>Story & mission</li>
+            <li>Responsible sourcing</li>
+            <li>Team / café ambience gallery</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <ul>
+            <li>Accessible contact form</li>
+            <li>Map, address, hours</li>
+            <li>Phone & social links</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Typography & Colors -->
+    <section class="card" aria-labelledby="typecolor-heading">
+      <h2 id="typecolor-heading">Typography & Color</h2>
+      <p><strong>Fonts:</strong> Lora (headings), Nunito (body). Loaded via Google Fonts.</p>
+      <p><strong>Palette:</strong> Coffee Brown (brand), Cream (background), Forest (accents). Applied to headings, borders, and section accents in this document.</p>
+      <div class="swatches" role="list" aria-label="Color swatches">
+        <div class="swatch brand" role="listitem"><span>#6B4E3D</span></div>
+        <div class="swatch cream" role="listitem"><span>#F5EFE6</span></div>
+        <div class="swatch accent" role="listitem"><span>#2F5D50</span></div>
+      </div>
+    </section>
+
+    <!-- Notes for Course Requirements (kept brief) -->
+    <section class="card" aria-labelledby="notes-heading">
+      <h2 id="notes-heading">Implementation Notes</h2>
+      <ul>
+        <li>Minimum three pages with consistent navigation and theme.</li>
+        <li>Standards-based HTML and valid, non-duplicated CSS.</li>
+        <li>Responsive layout; optimized images with lazy loading where appropriate.</li>
+        <li>Include an HTML form (Contact) and basic JavaScript for interactivity & localStorage.</li>
+        <li>Link a References page from the footer.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <small>© 2026 Café Aurora · This site plan is a living document for the university café project.</small>
+  </footer>
+</body>
+</html>
