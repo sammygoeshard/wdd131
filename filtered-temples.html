@@ -1,64 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temple Album</title>
-    <meta name="description" content="this is a responsive page for temples supposed to show various temples of the church of jesus christ of latter-day saints it supports various screen sizes and has a hamburger menu for mobile devices">
+    <meta name="description" content="this is a responsive page for temples of the church of jesus christ of latter-day saints. it supports various screen sizes and has a hamburger menu for mobile devices">
     <meta name="author" content="Samuel Jaspe">
-    <script src="scripts/getdates.js" defer></script>
-    <script src="scripts/filtered-temples.js" defer></script>
-    <link rel="stylesheet" href="styles/filtered-temples.css">
-    <link rel="stylesheet" href="styles/filtered-temples-large.css" media="(min-width: 800px)">
+    <title> WDD 131 – Filter Temples – Samuel Jaspe </title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/filtered-temples.css">
+    <script src="scripts/filtered-temples.js" defer></script>
+  </head>
 
-</head>
-<body>
-    <header> 
-      <span id="title">Temple Album</span>
-
-        <!-- Hamburger button: visible on mobile only -->
-        <button
-            id="#menuButton"
-            class="hamburger"
-            aria-label="Open menu"
-            aria-controls="primaryNav"
-            aria-expanded="false"
-        >
-            <!-- Using a text icon for simplicity and robustness -->
-            <span class="hamburger-icon" aria-hidden="true">☰</span>
-            <span class="sr-only">Menu</span>
-        </button>
-
-        <nav>
-           <ul id="primaryNav">
-                <li><a href="#" id="home">Home</a></li>
-                <li><a href="#" id="old-temples">Old</a></li>
-                <li><a href="#" id="new-temples">New</a></li>
-                <li><a href="#" id="large-temples">Large</a></li>
-                <li><a href="#" id="small-temples">Small</a></li>
-            </ul>
-        </nav>
-
+  <body>
+    <header>
+      <h2><span id="title">Temple Album</span></h2>
+      <button id="menu-toggle" aria-label="Toggle menu">☰</button>
+      <nav class="navigation">
+          <a href="temples.html">Home</a>
+          <a href="temples.html">Old</a>
+          <a href="temples.html">New</a>
+          <a href="temples.html">Large</a>
+          <a href="temples.html">Small</a>
+      </nav>
     </header>
-    
     <main>
-        <h1>Home</h1>
-
-        <div class="temple-cards">
-            <!-- Temple cards will be dynamically inserted here -->
-
-
-        </div>
+      <h1>Home</h1>
+      <div id="temple-gallery">
+        <!-- Temple cards go here -->
+      </div>
     </main>
-
     
     <footer>
-        <p> &copy;<span id="currentyear">2026</span> | Samuel Jaspe | Venezuela </p>
-        <p id="lastModified"></p>
-    </footer> 
-
-</body>
+      <p><span id="currentyear"></span></p>
+      <p id="lastModified"></p>
+    </footer>
+  </body>
 </html>
