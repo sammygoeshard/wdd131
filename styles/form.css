@@ -1,0 +1,251 @@
+:root {
+  /* ===== water colors ===== */
+  --primary-blue: #2563eb;
+  --dark-blue: #1e40af;
+  --light-blue: #60a5fa;
+  --very-light-blue: #d0dfff;
+  --dark-gray: #43474d;
+  --medium-gray: #6b7280;
+  --light-gray: #f3f4f6;
+  --white: #ffffff;
+  --orange: #ffd400;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto, helvetica, sans-serif;
+  color: var(--dark-gray);
+  background-color: var(--white);
+}
+
+header {
+  background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+  color: var(--white);
+  padding: 2rem;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+main {
+  padding: 0 2%;
+  min-height: 20rem;
+}
+
+
+form.wfl {
+  background-color: var(--light-gray);
+  border: 1px solid var(--light-blue);
+  border-radius: 6px;
+  padding: 2rem;
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.wfl fieldset {
+  margin: 2rem 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.5rem 2%;
+}
+
+fieldset {
+  margin: 2rem 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.5rem 2%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h3, h4 {
+  color: var(--primary-blue);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.wfl legend {
+  color: var(--primary-blue);
+  padding: 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* small italic letters for the all that aplly*/
+.wfl legend.italic-legend {
+  font-style: italic;
+}
+
+/* Optional label span color moved from inline style */
+.wfl .optional {
+  color: var(--primary-blue);
+}
+
+/* Review textarea and name input styles to match desired layout */
+.wfl .review-input {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  min-height: 8rem;
+  padding: 1rem;
+  margin-top: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: var(--white);
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.wfl .review-name {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  height: 2.4rem;
+  padding: 0.5rem;
+  margin-top: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.wfl label {
+  display: block;
+  padding-top: 1rem;
+  color: var(--dark-gray);
+  font-size: 1.1rem;
+}
+
+.wf1 input[type="text"],
+.wfl input[type="tel"],
+.wfl input[type="email"],
+.wfl input[type="url"],
+.wfl input[type="date"],
+.wfl select,
+.wfl input[type="number"] {
+  background-color: var(--white);
+  display: block;
+  border: solid 1px var(--medium-gray);
+  border-radius: 6px;
+  padding: 0.75rem;
+  color: var(--dark-gray);
+  width: 100%;
+  max-width: 400px;
+  appearance: none;
+  box-sizing: border-box;
+}
+
+.wfl select {
+  background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"%3E%3Cpolygon points="0,0 12,0 6,8" fill="%23111555"/%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 12px;
+  padding-right: 2.5rem;
+}
+
+.wfl input[type="radio"],
+.wfl input[type="checkbox"] {
+  margin-right: 6px;
+}
+
+/* ===== STAR RATING ===== */
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 0.1rem;
+  padding: 0.5rem 0;
+}
+
+.star-rating input[type="radio"] {
+  display: none;
+}
+
+.star-rating label {
+  display: inline-block;
+  font-size: 2rem;
+  color: #ccc;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input[type="radio"]:checked ~ label {
+  color: var(--orange);
+}
+
+.wfl input[type="submit"] {
+  border: none;
+  background-image: linear-gradient(var(--primary-blue), var(--dark-blue));
+  color: var(--white);
+  border-radius: 6px;
+  padding: .8rem;
+  width: 96%;
+  align-items: center;
+  max-width: 500px;
+  margin: -1rem 2% 2rem 2%;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.12);
+}
+
+.wfl input:required {
+  border-right: solid 8px red;
+}
+.wfl input:required:valid {
+  border-right: solid 8px green;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background-color: var(--dark-gray);
+  color: var(--white);
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media (max-width: 600px) {
+  form.wfl {
+    padding: 1rem;
+    margin: 1rem;
+    max-width: 96%;
+  }
+
+  .wfl .review-input {
+    min-height: 6rem;
+    padding: 0.75rem;
+  }
+
+  .wfl .review-name,
+  .wfl input[type="text"],
+  .wfl input[type="email"],
+  .wfl select,
+  .wfl input[type="number"] {
+    max-width: 100%;
+  }
+
+  .star-rating label {
+    font-size: 1.5rem;
+  }
+
+  .wfl legend {
+    font-size: 1.05rem;
+  }
+
+  .wfl input[type="submit"] {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+}
+
+@media (min-width: 900px) {
+  form.wfl {
+    max-width: 600px;
+  }
+}
