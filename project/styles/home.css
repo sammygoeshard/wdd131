@@ -1,0 +1,70 @@
+/* =========================================================
+   Café Aurora — Home Page Styles (home.css)
+   Loads after site.css. Keep this file focused on Home-only tweaks.
+   ========================================================= */
+
+/* ---------- Hero (Home-specific image & fine-tuning) ---------- */
+.hero {
+ background:
+      linear-gradient(180deg, rgba(47,93,80,.35), rgba(107,78,61,.35)),
+      url("https://images.pexels.com/photos/31125217/pexels-photo-31125217.jpeg") center/cover no-repeat;
+}
+
+/* Tighten or loosen vertical rhythm only on Home */
+.hero-inner {
+  /* Slightly more breathing room on large screens */
+  padding: clamp(3rem, 7vw, 6rem) 0;
+}
+
+/* Optional: nudge tagline sizing on Home only */
+.hero-tagline {
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+}
+
+
+/* Space below the specials grid before Hours/Location */
+.section--home-specials .card-grid {
+  row-gap: 1.25rem;
+}
+
+/* Optional: elevate the specials cards on hover (Home only) */
+.section--home-specials .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+
+/* ---------- Hours & Location block tweaks for Home ---------- */
+
+.section--home-hours .hours {
+  margin-top: .75rem;
+}
+
+/* Reduce map max-height on narrow phones for first paint cleanliness */
+.section--home-hours .map img {
+  max-height: 320px;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* ---------- Quick Actions (CTA row) ---------- */
+
+.section--home-cta .cta-row .btn {
+  min-width: 160px;
+}
+
+/* Slightly larger primary button on big screens */
+@media (min-width: 64rem) {
+  .section--home-cta .btn-primary {
+    padding: .85rem 1.15rem;
+  }
+}
+
+/* ---------- Optional: small motion preference respect ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .section--home-specials .card:hover {
+    transform: none;
+    box-shadow: var(--shadow-1);
+  }
+}

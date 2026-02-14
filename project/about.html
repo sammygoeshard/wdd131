@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Café Aurora | About</title>
+    <meta name="description" content="Explore the Café Aurora story, sourcing, and sustainability practices." />
+    <meta name="author" content="Samuel jaspe" />
+    <!-- Fonts + shared CSS as in Home -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/site.css">
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="styles/about.css">
+    </head>
+</head>
+<body class="about">
+  <!-- ===== Shared Header ===== -->
+    <header class="site-header" role="banner">
+        <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Café Aurora Home">
+            <img src="images/icons/cafe-aurora.svg" alt="Café Aurora logo" width="132" height="36" decoding="async" />
+        </a>
+    
+        <!-- CSS-only hamburger -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation" />
+        <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">
+            <span></span><span></span><span></span>
+        </label>
+    
+        <nav class="site-nav" aria-label="Primary">
+            <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html" aria-current="page">Menu</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        </div>
+    </header>
+
+  <!-- ===== Main ===== -->
+  <main id="main">
+    <!-- Hero / Intro -->
+        <header class="page-intro">
+        <h1>Our Story</h1>
+        <p>From a tiny idea to a neighborhood staple—crafted with coffee, care, and community.</p>
+        </header>
+
+        <!-- Our Story -->
+        <section class="about__story" aria-labelledby="story-title">
+        <div class="content">
+            <h2 id="story-title">How it began</h2>
+            <p>
+            Café Aurora started with a simple goal: brew exceptional coffee and create a welcoming space.
+            What began as weekend pop‑ups grew into a full café shaped by local artists, growers, and regulars.
+            </p>
+            <p>
+            Today, we focus on seasonal coffees, friendly service, and a calm place to study, meet, or unwind.
+            We’re grateful you’re here.
+            </p>
+        </div>
+
+        <figure class="story-media">
+            <img src="images/barist.webp" alt="Barista working in the morning light" width="600" height="400" decoding="async" />
+            <figcaption>Morning light in the bar where every day starts fresh.</figcaption>
+        </figure>
+        </section>
+
+        <!-- Sourcing & Sustainability -->
+        <section class="about__sourcing" aria-labelledby="sourcing-title">
+        <h2 id="sourcing-title">Sourcing &amp; Sustainability</h2>
+        <ul class="pillars">
+            <li>
+            <h3>Responsible Sourcing</h3>
+            <p>We partner with small farms and trusted importers who prioritize fair pricing and quality.</p>
+            </li>
+            <li>
+            <h3>Environmental Care</h3>
+            <p>Compostable cups/lids, careful water use, and a waste‑sorting station reduce our footprint.</p>
+            </li>
+            <li>
+            <h3>Local Community</h3>
+            <p>We showcase local bakers, donate grounds to gardeners, and host student/open‑mic nights.</p>
+            </li>
+        </ul>
+        </section>
+
+    <!-- ==== About: Gallery ==== -->
+<section class="about__gallery" aria-labelledby="gallery-title">
+  <h2 id="gallery-title">Gallery</h2>
+
+  <div class="gallery-grid">
+    <figure>
+      <img src="images/cappuccino.webp" alt="Signature latte art"
+           loading="lazy" decoding="async" width="600" height="800">
+      <figcaption>Signature latte art.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/grinder.webp" alt="Coffee grinder in use"
+           loading="lazy" decoding="async" width="600" height="800">
+      <figcaption>Specialty grinder for precise roasting.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/breakfast.webp" alt="Freshly baked breakfast pastries"
+           loading="lazy" decoding="async" width="800" height="600">
+      <figcaption>Your daily dose of happiness.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/coffee-beans.webp" alt="Coffee beans in a bowl"
+           loading="lazy" decoding="async" width="600" height="800">
+      <figcaption>Evenings on the terrace.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/machine.webp" alt="Espresso machine"
+           loading="lazy" decoding="async" width="800" height="600">
+      <figcaption>Our ol'reliable espresso machine.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/cafe-hero.webp" alt="the café's spaces"
+           loading="lazy" decoding="async" width="800" height="600">
+      <figcaption>Green spaces perfect for studying, relaxing, and tasting awesome coffee.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/special-3.webp" alt="Signature latte art"
+           loading="lazy" decoding="async" width="600" height="800">
+      <figcaption>the best Cachitos in Town.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/cold-brew.webp" alt="Signature cold brew"
+           loading="lazy" decoding="async" width="600" height="800">
+      <figcaption>Cold brew on tap.</figcaption>
+    </figure>
+  </div>
+</section>
+        </main>
+
+  <!-- ===== Shared Footer ===== -->
+<footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <section aria-labelledby="footer-about">
+        <h2 id="footer-about" class="sr-only">About Café Aurora</h2>
+        <p><strong>Café Aurora</strong><br />Warm brews & local pastries.</p>
+        <p>© <span id="year">2026</span> Café Aurora</p>
+      </section>
+
+      <section aria-labelledby="footer-hours">
+        <h3 id="footer-hours">Hours</h3>
+        <p>Mon–Sat: 7:00 a.m. – 8:00 p.m.<br />Closed Sunday</p>
+      </section>
+
+      <section aria-labelledby="footer-address">
+        <h3 id="footer-address">Address</h3>
+        <address>423 Caracas Ave,<br />San Fernando, Apure</address>
+      </section>
+
+      <section aria-labelledby="footer-social">
+        <h3 id="footer-social">Social</h3>
+        <ul class="social">
+          <li><a href="https://instagram.com" aria-label="Instagram"><img src="images/icons/instagram-square.svg" alt="Instagram"></a></li>
+          <li><a href="https://facebook.com" aria-label="Facebook"><img src="images/icons/facebook-square.svg" alt="Facebook"></a></li>
+          <li><a href="https://tiktok.com" aria-label="TikTok"><img src="images/icons/tiktok-square.svg" alt="TikTok"></a></li>
+        </ul>
+        <!-- Required by WDD131: link to references page -->
+        <p><a href="references.html">References</a></p>
+      </section>
+    </div>
+  </footer>
+  <!-- Shared helper (year + nav toggle) -->
+  <script>
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const btn = document.getElementById('navToggle');
+    const list = document.getElementById('primaryNav');
+    btn?.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      list.classList.toggle('open', !open);
+    });
+  </script>
+</body>
+</html>

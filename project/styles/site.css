@@ -1,0 +1,275 @@
+/* =========================================================
+   Café Aurora — Shared Site Styles (site.css)
+   Layered architecture: reset → base → layout → components → utilities
+   ========================================================= */
+
+/* Declare layer order */
+@layer reset, base, layout, components, utilities;
+
+/* =========================================================
+   RESET
+   ========================================================= */
+@layer reset {
+  *, *::before, *::after { box-sizing: border-box; }
+  html:focus-within { scroll-behavior: smooth; }
+
+  /* Responsive media (safe SVG handling: do NOT force global width/height) */
+  img, picture, video { display: block; max-width: 100%; height: auto; }
+  svg { display: block; }
+}
+
+/* =========================================================
+   BASE: tokens, typography, links, helpers, base containers
+   ========================================================= */
+@layer base {
+  :root {
+    --coffee: #6B4E3D;   /* brand */
+    --cream:  #F5EFE6;   /* background */
+    --forest: #2F5D50;   /* accents */
+    --ink:    #222222;   /* text */
+    --ink-2:  #444;
+    --line:   #E5E5E5;
+    --white:  #ffffff;
+
+    --radius: 12px;
+    --shadow-1: 0 2px 8px rgba(0,0,0,.06);
+    --shadow-2: 0 10px 24px rgba(0,0,0,.08);
+
+    --container: 1200px;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Nunito", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Lora", Georgia, serif;
+    color: var(--coffee);
+    line-height: 1.25;
+    margin: 0 0 .5rem;
+  }
+
+  p { margin: 0 0 1rem; }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* Accessibility helpers */
+  .skip-link {
+    position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden;
+  }
+  .skip-link:focus {
+    position: fixed; left: 1rem; top: 1rem; width: auto; height: auto; padding: .5rem .75rem;
+    background: var(--forest); color: var(--white); border-radius: 6px; z-index: 1000;
+  }
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+
+  /* Base containers/sections */
+  .container { width: min(100% - 2rem, var(--container)); margin-inline: auto; }
+  .section   { padding: 3rem 0; }
+  .section-alt { background: #F3F1EC; padding: 3rem 0; }
+}
+
+/* =========================================================
+   LAYOUT: header, nav, footer grids, responsive behavior
+   ========================================================= */
+@layer layout {
+  /* Header */
+  .site-header {
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .header-inner {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding: .75rem 0;
+  }
+  .brand img { display: block; }
+
+  /* Mobile nav (checkbox pattern support + JS enhancement) */
+  .nav-toggle { display: none; }
+  .nav-toggle-label {
+    display: grid; gap: 4px; width: 32px; cursor: pointer;
+  }
+  .nav-toggle-label span {
+    display: block; height: 3px; background: var(--ink); border-radius: 2px;
+  }
+
+  /* Primary nav */
+  .site-nav { display: none; }
+  .site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 1rem; }
+  .site-nav a {
+    display: block; padding: .5rem .75rem; border-radius: 8px; color: var(--ink-2);
+  }
+  .site-nav a[aria-current="page"] { color: var(--white); background: var(--forest); }
+
+  /* Open menu on mobile: checkbox fallback and JS class hook */
+  #nav-toggle:checked ~ .site-nav { display: block; }
+  .site-header.nav-open .site-nav { display: block; }
+
+
+  /* Desktop breakpoint (48rem / 768px) */
+  @media (min-width: 48rem) {
+    .nav-toggle-label { display: none; }
+    .site-nav { display: block; }
+  }
+
+  /* Footer */
+  .site-footer {
+    background: var(--white);
+    border-top: 1px solid var(--line);
+    padding: 2rem 0;
+  }
+  .footer-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    overflow: visible;
+  }
+  /* Critical: allow columns to shrink (prevents large SVG overflow) */
+  .footer-grid > section { min-width: 0; }
+  @media (min-width: 48rem) {
+    .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
+  }
+}
+
+/* =========================================================
+   COMPONENTS: hero, buttons, cards, menu card, social icons, etc.
+   ========================================================= */
+@layer components {
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    padding: .75rem 1rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    border: 2px solid transparent;
+    transition: transform .06s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary { background: var(--forest); color: var(--white); }
+  .btn-primary:hover { background: #24473F; }
+  .btn-outline  { background: transparent; color: var(--white); border-color: var(--white); }
+  .btn-outline:hover { background: rgba(255,255,255,.12); }
+
+  /* Hero (adjust image path to your project if needed) */
+  .hero {
+    background:
+      linear-gradient(180deg, rgba(47,93,80,.35), rgba(107,78,61,.35)),
+      url("../images/hero.webp") center/cover no-repeat;
+    color: var(--white);
+  }
+  .hero-inner  { padding: clamp(3rem, 6vw, 5rem) 0; text-align: center; }
+  .hero h1     { color: var(--white); }
+  .hero-tagline { font-size: 1.0625rem; opacity: .95; }
+  .hero-ctas   { margin-top: 1rem; display: inline-flex; gap: .75rem; }
+
+  /* Generic cards (home specials, etc.) */
+  .card-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 48rem) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 64rem) { .card-grid { grid-template-columns: repeat(4, 1fr); } }
+  .card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-1);
+  }
+  .card-body { padding: 1rem; }
+  .card-title { margin: 0 0 .25rem; }
+  .card-text  { color: #555; margin-bottom: .5rem; }
+  .card-price { font-weight: 700; color: var(--coffee); }
+
+  /* Menu page components */
+  .menu-filters { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0 .5rem; }
+  .filter-btn {
+    appearance: none;
+    border: 1px solid var(--line);
+    background: var(--white);
+    color: var(--ink);
+    border-radius: 999px;
+    padding: .5rem .9rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .filter-btn:hover    { background: #fafafa; }
+  .filter-btn.is-active {
+    border-color: var(--forest);
+    background: var(--forest);
+    color: var(--white);
+  }
+  .menu-count { color: var(--ink-2); margin-bottom: 1rem; }
+
+  .menu-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 48rem) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 64rem) { .menu-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .menu-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-1);
+    overflow: hidden;
+  }
+  .menu-card__body   { padding: 1rem; }
+  .menu-card__header { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: .5rem; margin-bottom: .25rem; }
+  .menu-card__title  { font-family: "Lora", Georgia, serif; font-size: 1.125rem; margin: 0; color: var(--coffee); }
+  .menu-card__price  { font-weight: 700; color: var(--forest); }
+  .menu-card__desc   { color: #555; margin: 0 0 .5rem; }
+  .menu-card__tags   { display: flex; gap: .25rem; flex-wrap: wrap; }
+  .tag { display: inline-block; font-size: .75rem; border: 1px solid var(--line); padding: .1rem .5rem; border-radius: 999px; color: var(--ink-2); }
+
+  /* Hours & Map block */
+  .hours { margin-top: .5rem; }
+  .map img { border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow-1); }
+
+  /* Footer social (patched to avoid large external SVG overflow) */
+  .social { list-style: none; padding: 0; margin: 0; display: flex; gap: .75rem; }
+  .site-footer .social { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; padding: 0; margin: .25rem 0 0; list-style: none; }
+  .site-footer .social li { margin: 0; padding: 0; }
+  .site-footer .social a {
+    width: 32px; height: 32px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 6px; background: transparent; text-decoration: none;
+  }
+  .site-footer .social a:hover { background: rgba(41, 105, 87, 0.12); }
+  .site-footer .social a img,
+  .site-footer .social a svg {
+    width: 100% !important; height: 100% !important;
+    max-width: 32px !important; max-height: 32px !important;
+    object-fit: contain; display: block;
+  }
+  .site-footer h3 {
+    margin: 0 0 .5rem;
+    color: var(--coffee);
+    font-family: "Lora", serif;
+    font-weight: 700;
+  }
+
+}
+
+/* =========================================================
+   UTILITIES: quick layout helpers, no-scroll, simple grids
+   ========================================================= */
+@layer utilities {
+  .grid-2 { display: grid; gap: 1.5rem; }
+  @media (min-width: 48rem) {
+    .grid-2 { grid-template-columns: 1fr 1fr; align-items: center; }
+  }
+
+  .cta-row { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+
+  /* Used by JS to prevent background scroll when mobile nav is open */
+  .no-scroll { overflow: hidden; }
+}

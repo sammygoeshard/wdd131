@@ -1,0 +1,70 @@
+/* =========================================================
+   Café Aurora — Menu Page Styles (menu.css)
+   Adds optional thumbnails to menu cards without altering site.css
+   ========================================================= */
+
+/* 1) Media-object layout inside menu-card */
+.menu-card {
+  display: grid;
+  grid-template-columns: 112px 1fr;  /* media | content */
+  align-items: center;
+  column-gap: 2rem;
+}
+
+/* On very small screens stack image above content */
+@media (max-width: 420px) {
+  .menu-card {
+    grid-template-columns: 1fr;
+    row-gap: 0.5rem;
+  }
+}
+
+/* 2) Thumbnail figure */
+.menu-card__media {
+  width: 100%;
+  max-width: 112px;         /* keeps a tidy column */
+  aspect-ratio: 4 / 3;      /* consistent thumb shape */
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-1);
+}
+
+/* Fallback for older browsers without aspect-ratio */
+@supports not (aspect-ratio: 1) {
+  .menu-card__media { position: relative; }
+  .menu-card__media::before {
+    content: ""; display: block; padding-bottom: 75%; /* 4:3 */
+  }
+  .menu-card__media > img {
+    position: absolute; inset: 0;
+  }
+}
+
+/* 3) Images scale neatly in their frame */
+.menu-card__media > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* fills frame nicely */
+  display: block;
+}
+
+/* 5) Tweak spacing so price lines up nicely when image present */
+.menu-card__header {
+  align-items: center;  /* title and price in line */
+}
+
+/* Optional: slightly tighten description when a thumb exists */
+.menu-card__desc {
+  margin-top: 0.25rem;
+}
+
+/* Optional: hover polish for menu cards (matches Home card feel) */
+.menu-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .menu-card:hover { transform: none; box-shadow: var(--shadow-1); }
+}

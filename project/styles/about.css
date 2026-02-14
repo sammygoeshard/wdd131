@@ -1,0 +1,97 @@
+/* ================= About Page ================= */
+
+.about .page-intro {
+  max-width: 68rem;
+  margin: 1rem auto 1.25rem;
+  padding: 0 1rem;
+}
+.about .page-intro h1 { margin: 0 0 .25rem; }
+.about .page-intro p  { margin: 0; color: var(--ink-60, #4a4a4a); }
+
+/* Story section: media + text */
+.about__story {
+  max-width: 68rem;
+  margin: 0 auto 1.5rem;
+  padding: 0 1rem;
+  display: grid;
+  gap: 1rem;
+}
+.about__story .content {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgba(0,0,0,.06);
+  padding: 1rem;
+}
+.about__story .story-media {
+  margin: 0;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgba(0,0,0,.06);
+  overflow: hidden;
+}
+.about__story .story-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.about__story .story-media figcaption {
+  padding: .5rem .75rem;
+  font-size: .9rem;
+  color: var(--ink-70, #333);
+}
+
+/* Sourcing & Sustainability */
+.about__sourcing {
+  max-width: 68rem;
+  margin: 0 auto 1.5rem;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgba(0,0,0,.06);
+}
+.about__sourcing h2 { margin-top: 0; color: var(--coffee, #6B4E3D); }
+.about__sourcing .pillars {
+  display: grid;
+  gap: .75rem;
+  list-style: none;
+  padding: 0;
+  margin: .5rem 0 0;
+}
+.about__sourcing .pillars li {
+  background: #fff;
+  border: 1px dashed rgba(0,0,0,.08);
+  border-radius: 10px;
+  padding: .85rem;
+}
+.about__sourcing .pillars h3 {
+  margin: 0 0 .25rem;
+  font-size: 1.05rem;
+  color: var(--forest, #2F5D50);
+}
+
+/* Masonry using CSS columns */
+.gallery-grid {
+  column-width: 16rem;        /* target column width */
+  column-gap: 1rem;
+}
+.gallery-grid figure {
+  break-inside: avoid;
+  margin: 0 0 1rem;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 8px rgba(0,0,0,.06);
+}
+.gallery-grid img { width: 100%; height: auto; display: block; }
+.gallery-grid figcaption { padding: .5rem .75rem; font-size: .9rem; color: var(--ink-70,#333); }
+
+/* Desktop layout */
+@media (min-width: 960px) {
+  .about__story {
+    grid-template-columns: 1.2fr 1fr; /* text bigger than image */
+    align-items: start;
+  }
+  .about__sourcing .pillars {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

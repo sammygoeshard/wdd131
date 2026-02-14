@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Café Aurora | Home</title>
+  <meta name="description" content="Warm brews, local pastries, and a study-friendly space at Café Aurora." />
+  <meta name="author" content="Samuel Jaspe" />
+  <!-- Shared site behaviors (hamburger, a11y helpers, etc.) -->
+  <script src="scripts/site.js" defer></script>
+
+  <!-- Fonts: Lora (headings) & Nunito (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/site.css" />
+  <link rel="stylesheet" href="styles/home.css" />
+</head>
+<body>
+  <!-- Skip link for keyboard users / a11y -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ===== Header (universal) ===== -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Café Aurora Home">
+        <img src="images/icons/cafe-aurora.svg" alt="Café Aurora logo" width="132" height="36" decoding="async" />
+      </a>
+
+      <!-- CSS-only hamburger -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation" />
+      <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </label>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Main ===== -->
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <!-- Use CSS background-image for hero (see styles.css) -->
+      <div class="container hero-inner">
+        <h1 id="hero-title">Welcome to Café Aurora</h1>
+        <p class="hero-tagline">Warm brews • Local pastries • Study‑friendly space</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="menu.html">View Menu</a>
+          <a class="btn btn-outline" href="contact.html">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Specials -->
+    <section class="section" aria-labelledby="specials-title">
+      <div class="container">
+        <h2 id="specials-title">Featured Specials</h2>
+
+        <div class="card-grid">
+          <!-- Card 1 -->
+          <article class="card">
+            <img src="images/special-1.webp" alt="Latte with art" width="480" height="320" loading="lazy" decoding="async" />
+            <div class="card-body">
+              <h3 class="card-title">Aurora Latte</h3>
+              <p class="card-text">Velvety latte with caramel drizzle.</p>
+              <p class="card-price">$3.95</p>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="card">
+            <img src="images/special-2.webp" alt="Iced matcha tea" width="480" height="320" loading="lazy" decoding="async" />
+            <div class="card-body">
+              <h3 class="card-title">Iced Matcha</h3>
+              <p class="card-text">Creamy ceremonial-grade matcha.</p>
+              <p class="card-price">$4.50</p>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="card">
+            <img src="images/special-3.webp" alt="Chocolate croissant" width="480" height="320" loading="lazy" decoding="async" />
+            <div class="card-body">
+              <h3 class="card-title">Chocolate Croissant</h3>
+              <p class="card-text">Layered, flaky, bakery-fresh.</p>
+              <p class="card-price">$2.95</p>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="card">
+            <img src="images/special-4.webp" alt="Seasonal pumpkin spice" width="480" height="320" loading="lazy" decoding="async" />
+            <div class="card-body">
+              <h3 class="card-title">Seasonal: Pumpkin Spice</h3>
+              <p class="card-text">Comforting spices & microfoam.</p>
+              <p class="card-price">$4.25</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hours & Location -->
+    <section class="section section-alt" aria-labelledby="hours-title">
+      <div class="container grid-2">
+        <div>
+          <h2 id="hours-title">Hours &amp; Location</h2>
+          <address class="vcard">
+            <p class="adr">423 Caracas Ave, San Fernando, Apure</p>
+            <p class="tel">Phone: +58 (0412) 314-159</p>
+          </address>
+          <p class="hours">
+            <strong>Mon–Sat:</strong> <time datetime="07:00">7:00</time>–<time datetime="20:00">20:00</time><br />
+            <strong>Closed:</strong> Sunday
+          </p>
+        </div>
+
+        <!-- Map preview  -->
+        <div class="map-preview">
+          <iframe title="Map to Café Aurora" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d306.7474064091653!2d-67.47250752707399!3d7.883564929668718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e7880d5aa1d7495%3A0x986246c18d04d764!2sVGMH%2BF2V%2C%20Av.%20Caracas%2C%20San%20Fernando%20de%20Apure%207001%2C%20Apure!5e0!3m2!1ses-419!2sve!4v1770749281998!5m2!1ses-419!2sve" 
+                width="600" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+         </iframe>
+      
+      </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="section" aria-labelledby="cta-title">
+      <div class="container cta-row">
+        <h2 id="cta-title" class="sr-only">Quick Actions</h2>
+        <a class="btn btn-primary" href="menu.html">View Menu</a>
+        <a class="btn btn-outline" href="contact.html">Contact Us</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer (universal) ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <section aria-labelledby="footer-about">
+        <h2 id="footer-about" class="sr-only">About Café Aurora</h2>
+        <p><strong>Café Aurora</strong><br />Warm brews & local pastries.</p>
+        <p>© <span id="year">2026</span> Café Aurora</p>
+      </section>
+
+      <section aria-labelledby="footer-hours">
+        <h3 id="footer-hours">Hours</h3>
+        <p>Mon–Sat: 7:00 a.m. – 8:00 p.m.<br />Closed Sunday</p>
+      </section>
+
+      <section aria-labelledby="footer-address">
+        <h3 id="footer-address">Address</h3>
+        <address>423 Caracas Ave,<br />San Fernando, Apure</address>
+      </section>
+
+      <section aria-labelledby="footer-social">
+        <h3 id="footer-social">Social</h3>
+        <ul class="social">
+          <li><a href="https://instagram.com" aria-label="Instagram"><img src="images/icons/instagram-square.svg" alt="Instagram"></a></li>
+          <li><a href="https://facebook.com" aria-label="Facebook"><img src="images/icons/facebook-square.svg" alt="Facebook"></a></li>
+          <li><a href="https://tiktok.com" aria-label="TikTok"><img src="images/icons/tiktok-square.svg" alt="TikTok"></a></li>
+        </ul>
+        <!-- Required by WDD131: link to references page -->
+        <p><a href="references.html">References</a></p>
+      </section>
+    </div>
+  </footer>
+</body>
+</html>

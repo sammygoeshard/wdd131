@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Café Aurora | Contact</title>
+  <meta name="description" content="Get in touch with Café Aurora for questions, catering, or feedback." />
+  <meta name="author" content="Samuel jaspe" />
+
+  <!-- Shared/global styles (already in your project) -->
+  <link rel="stylesheet" href="styles/site.css" />
+  <!-- Page-specific styles -->
+  <link rel="stylesheet" href="styles/contact.css" />
+</head>
+<body class="contact">
+  <!-- ===== Shared Header (use your existing component) ===== -->
+  <header class="site-header" role="banner">
+        <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Café Aurora Home">
+            <img src="images/icons/cafe-aurora.svg" alt="Café Aurora logo" width="132" height="36" decoding="async" />
+        </a>
+    
+        <!-- CSS-only hamburger -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation" />
+        <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">
+            <span></span><span></span><span></span>
+        </label>
+    
+        <nav class="site-nav" aria-label="Primary">
+            <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html" aria-current="page">Menu</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        </div>
+    </header>
+
+  <!-- ===== Main ===== -->
+  <main id="main">
+    <header class="page-intro">
+      <h1>Contact Us</h1>
+      <p>Questions, catering requests, or feedback? Send us a note—we’ll reply within one business day.</p>
+    </header>
+
+    <!-- Two-column layout on desktop: form (left) + map (right) -->
+    <section class="contact-two-col" aria-label="Contact form and location">
+      <!-- Form -->
+      <div class="contact__form">
+        <h2 class="section-title">Send a message</h2>
+
+        <form id="contactForm" novalidate>
+          <div class="field">
+            <label for="name">Name <span class="required" aria-hidden="true">*</span></label>
+            <input id="name" name="name" type="text" autocomplete="name" required aria-describedby="nameHelp" />
+            <small id="nameHelp" class="error" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <label for="email">Email <span class="required" aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="emailHelp" inputmode="email" />
+            <small id="emailHelp" class="error" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <label for="topic">Topic</label>
+            <select id="topic" name="topic" aria-describedby="topicHelp">
+              <option value="General">General</option>
+              <option value="Catering">Catering</option>
+              <option value="Careers">Careers</option>
+            </select>
+            <small id="topicHelp" class="help">Choose a topic to help us route your message.</small>
+          </div>
+
+          <div class="field">
+            <label for="message">Message <span class="required" aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" rows="6" required aria-describedby="messageHelp"></textarea>
+            <small id="messageHelp" class="error" aria-live="polite"></small>
+          </div>
+
+          <fieldset class="field field--options">
+            <legend>Preferences</legend>
+            <label class="checkbox">
+              <input type="checkbox" id="subscribe" name="subscribe" />
+              Email me café news and specials
+            </label>
+          </fieldset>
+
+          <button type="submit" class="btn primary">Send message</button>
+          <p id="formNote" class="form-note" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <!-- Map -->
+      <aside class="contact__map">
+        <h2 class="section-title">Map &amp; Directions</h2>
+
+        <iframe title="Map to Café Aurora" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d306.7474064091653!2d-67.47250752707399!3d7.883564929668718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e7880d5aa1d7495%3A0x986246c18d04d764!2sVGMH%2BF2V%2C%20Av.%20Caracas%2C%20San%20Fernando%20de%20Apure%207001%2C%20Apure!5e0!3m2!1ses-419!2sve!4v1770749281998!5m2!1ses-419!2sve" 
+            width="600" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+         </iframe>
+          <span class="map-cta">Click to load map</span>
+        </div>
+
+        <div class="directions">
+          <p><strong>Address:</strong> Av. Example 123, Local 2</p>
+          <p><strong>Hours:</strong> Mon–Sat 7:00–20:00</p>
+          <p><strong>Phone:</strong> <a href="tel:+58-000-0000000">+58 (000) 000‑0000</a></p>
+        </div>
+      </aside>
+    </section>
+    </main>
+
+    <!-- ===== Footer (universal) ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <section aria-labelledby="footer-about">
+        <h2 id="footer-about" class="sr-only">About Café Aurora</h2>
+        <p><strong>Café Aurora</strong><br />Warm brews & local pastries.</p>
+        <p>© <span id="year">2026</span> Café Aurora</p>
+      </section>
+
+      <section aria-labelledby="footer-hours">
+        <h3 id="footer-hours">Hours</h3>
+        <p>Mon–Sat: 7:00 a.m. – 8:00 p.m.<br />Closed Sunday</p>
+      </section>
+
+      <section aria-labelledby="footer-address">
+        <h3 id="footer-address">Address</h3>
+        <address>423 Caracas Ave,<br />San Fernando, Apure</address>
+      </section>
+
+      <section aria-labelledby="footer-social">
+        <h3 id="footer-social">Social</h3>
+        <ul class="social">
+          <li><a href="https://instagram.com" aria-label="Instagram"><img src="images/icons/instagram-square.svg" alt="Instagram"></a></li>
+          <li><a href="https://facebook.com" aria-label="Facebook"><img src="images/icons/facebook-square.svg" alt="Facebook"></a></li>
+          <li><a href="https://tiktok.com" aria-label="TikTok"><img src="images/icons/tiktok-square.svg" alt="TikTok"></a></li>
+        </ul>
+        <!-- Required by WDD131: link to references page -->
+        <p><a href="references.html">References</a></p>
+      </section>
+    </div>
+  </footer>
+      <!-- Shared helper (year + nav toggle) -->   
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const btn = document.getElementById('navToggle');
+    const list = document.getElementById('primaryNav');
+    btn?.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      list.classList.toggle('open', !open);
+    });
+  </script>
+
+  <!-- Page logic  -->
+  <script src="scripts/contact.js" defer></script>
+</body>
+</html>
